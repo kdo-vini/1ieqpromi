@@ -1,4 +1,4 @@
-// Aguarda o carregamento completo do DOM
+// JavaScript Principal - 1ª IEQ Promissão
 document.addEventListener('DOMContentLoaded', function() {
     
     // ===== NAVEGAÇÃO =====
@@ -31,19 +31,21 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Event listeners para navegação
-    window.addEventListener('scroll', updateNavbar);
-    mobileMenuButton.addEventListener('click', toggleMobileMenu);
-    
-    // Fechar menu mobile ao clicar em um link
-    const mobileLinks = mobileMenu.querySelectorAll('a');
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            const icon = mobileMenuButton.querySelector('i');
-            icon.classList.remove('fa-times');
-            icon.classList.add('fa-bars');
+    if (mobileMenuButton) {
+        window.addEventListener('scroll', updateNavbar);
+        mobileMenuButton.addEventListener('click', toggleMobileMenu);
+        
+        // Fechar menu mobile ao clicar em um link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
         });
-    });
+    }
     
     // ===== ANIMAÇÕES DE SCROLL =====
     const observerOptions = {
@@ -99,9 +101,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const navLinks = document.querySelectorAll('nav a[href^="#"]');
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            const href = this.getAttribute('href');
+            
+            // Se for link para outra página com âncora, não interceptar
+            if (href.includes('.html#')) {
+                return; // Deixa o navegador lidar com isso
+            }
+            
             e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const targetElement = document.querySelector(href);
             
             if (targetElement) {
                 const offsetTop = targetElement.offsetTop - 80; // Compensar altura da navbar
@@ -112,37 +120,6 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     });
-    
-    // ===== FORMULÁRIO DE CONTATO =====
-    const contactForm = document.getElementById('contact-form');
-    
-    if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(this);
-            const submitButton = this.querySelector('button[type="submit"]');
-            const originalText = submitButton.innerHTML;
-            
-            // Mostrar loading
-            submitButton.innerHTML = '<div class="loading"></div> Enviando...';
-            submitButton.disabled = true;
-            
-            // Simular envio (substitua pela sua lógica de envio real)
-            setTimeout(() => {
-                // Sucesso
-                showNotification('Mensagem enviada com sucesso! Entraremos em contato em breve.', 'success');
-                
-                // Reset form
-                this.reset();
-                
-                // Restaurar botão
-                submitButton.innerHTML = originalText;
-                submitButton.disabled = false;
-                
-            }, 2000);
-        });
-    }
     
     // ===== SISTEMA DE NOTIFICAÇÕES =====
     function showNotification(message, type = 'info') {
@@ -159,26 +136,52 @@ document.addEventListener('DOMContentLoaded', function() {
         switch(type) {
             case 'success':
                 notification.classList.add('bg-green-500', 'text-white');
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-check-circle mr-2"></i>
+                        <span>${message}</span>
+                        <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
                 break;
             case 'error':
                 notification.classList.add('bg-red-500', 'text-white');
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-circle mr-2"></i>
+                        <span>${message}</span>
+                        <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
                 break;
             case 'warning':
                 notification.classList.add('bg-yellow-500', 'text-white');
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-exclamation-triangle mr-2"></i>
+                        <span>${message}</span>
+                        <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
                 break;
             default:
                 notification.classList.add('bg-blue-500', 'text-white');
+                notification.innerHTML = `
+                    <div class="flex items-center">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        <span>${message}</span>
+                        <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                `;
         }
-        
-        notification.innerHTML = `
-            <div class="flex items-center">
-                <i class="fas fa-check-circle mr-2"></i>
-                <span>${message}</span>
-                <button class="ml-4 text-white hover:text-gray-200" onclick="this.parentElement.parentElement.remove()">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-        `;
         
         document.body.appendChild(notification);
         
@@ -198,48 +201,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }, 5000);
     }
     
-    // ===== EFEITOS DE PARALLAX =====
-    function handleParallax() {
-        const scrolled = window.pageYOffset;
-        const parallaxElements = document.querySelectorAll('.parallax');
-        
-        parallaxElements.forEach(element => {
-            const speed = 0.5;
-            const yPos = -(scrolled * speed);
-            element.style.transform = `translate3d(0, ${yPos}px, 0)`;
-        });
-    }
-    
-    // Throttle para performance
-    let ticking = false;
-    function requestTick() {
-        if (!ticking) {
-            requestAnimationFrame(updateParallax);
-            ticking = true;
-        }
-    }
-    
-    function updateParallax() {
-        handleParallax();
-        ticking = false;
-    }
-    
-    window.addEventListener('scroll', requestTick);
-    
-    // ===== LAZY LOADING PARA IMAGENS =====
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.removeAttribute('data-src');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-    
-    images.forEach(img => imageObserver.observe(img));
+    // Expor função globalmente para uso em outras páginas
+    window.showNotification = showNotification;
     
     // ===== ANIMAÇÕES DOS PILARES =====
     const pillars = document.querySelectorAll('.pillar-red, .pillar-yellow, .pillar-blue, .pillar-purple');
@@ -265,6 +228,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const backToTopButton = document.createElement('button');
     backToTopButton.innerHTML = '<i class="fas fa-chevron-up"></i>';
     backToTopButton.className = 'fixed bottom-8 right-8 bg-gradient-to-r from-red-500 to-purple-500 text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all duration-300 hover:scale-110 z-50';
+    backToTopButton.setAttribute('aria-label', 'Voltar ao topo');
     backToTopButton.onclick = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' });
     };
@@ -281,39 +245,20 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    // ===== TYPEWRITER EFFECT =====
-    function typeWriter(element, text, speed = 50) {
-        let i = 0;
-        element.innerHTML = '';
-        
-        function type() {
-            if (i < text.length) {
-                element.innerHTML += text.charAt(i);
-                i++;
-                setTimeout(type, speed);
+    // ===== LAZY LOADING PARA IMAGENS =====
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+                imageObserver.unobserve(img);
             }
-        }
-        
-        type();
-    }
-    
-    // ===== INICIALIZAÇÃO DE ANIMAÇÕES =====
-    function initAnimations() {
-        // Animar título principal após carregamento
-        const mainTitle = document.querySelector('.gradient-bg h1');
-        if (mainTitle) {
-            const originalText = mainTitle.innerHTML;
-            setTimeout(() => {
-                typeWriter(mainTitle, originalText.replace(/<[^>]*>/g, ''), 80);
-            }, 1000);
-        }
-        
-        // Adicionar delay às animações dos cards
-        const cards = document.querySelectorAll('.hover-scale');
-        cards.forEach((card, index) => {
-            card.style.animationDelay = `${index * 0.1}s`;
         });
-    }
+    });
+    
+    images.forEach(img => imageObserver.observe(img));
     
     // ===== PERFORMANCE OPTIMIZATION =====
     // Debounce function
@@ -340,18 +285,89 @@ document.addEventListener('DOMContentLoaded', function() {
     
     window.addEventListener('scroll', optimizedScrollHandler);
     
-    // ===== INICIALIZAÇÃO =====
-    // Executar animações iniciais
-    setTimeout(initAnimations, 500);
+    // ===== DETECÇÃO DE DISPOSITIVO =====
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const isTouch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
     
-    // Pré-carregar imagens importantes
-    const preloadImages = [
-        // Adicione aqui URLs de imagens importantes para pré-carregamento
-    ];
+    if (isMobile || isTouch) {
+        document.body.classList.add('is-mobile');
+        
+        // Otimizações específicas para mobile
+        const pillars = document.querySelectorAll('.pillar-card');
+        pillars.forEach(pillar => {
+            pillar.addEventListener('touchstart', function() {
+                this.style.transform = 'scale(0.98)';
+            });
+            
+            pillar.addEventListener('touchend', function() {
+                this.style.transform = 'scale(1)';
+            });
+        });
+    }
     
-    preloadImages.forEach(src => {
-        const img = new Image();
-        img.src = src;
+    // ===== SEO E ANALYTICS =====
+    // Google Analytics (substitua pelo seu ID)
+    function gtag(){
+        if (typeof dataLayer !== 'undefined') {
+            dataLayer.push(arguments);
+        }
+    }
+    
+    // Track page views
+    function trackPageView(page) {
+        if (typeof gtag === 'function') {
+            gtag('config', 'GA_MEASUREMENT_ID', {
+                page_title: document.title,
+                page_location: window.location.href
+            });
+        }
+    }
+    
+    // Track events
+    function trackEvent(action, category, label = null, value = null) {
+        if (typeof gtag === 'function') {
+            const eventData = {
+                event_category: category,
+                event_label: label,
+                value: value
+            };
+            gtag('event', action, eventData);
+        }
+    }
+    
+    // Expose tracking functions
+    window.trackEvent = trackEvent;
+    window.trackPageView = trackPageView;
+    
+    // ===== ACESSIBILIDADE =====
+    // Detectar se o usuário prefere movimento reduzido
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    
+    if (prefersReducedMotion.matches) {
+        // Desabilitar animações para usuários que preferem movimento reduzido
+        const animatedElements = document.querySelectorAll('.floating, .animate-bounce, .animate-pulse, .animate-spin');
+        animatedElements.forEach(el => {
+            el.style.animation = 'none';
+        });
+        
+        document.body.classList.add('reduce-motion');
+    }
+    
+    // Melhorar navegação por teclado
+    const focusableElements = document.querySelectorAll(
+        'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
+    );
+    
+    focusableElements.forEach(el => {
+        el.addEventListener('focus', function() {
+            this.style.outline = '2px solid #eab308';
+            this.style.outlineOffset = '2px';
+        });
+        
+        el.addEventListener('blur', function() {
+            this.style.outline = '';
+            this.style.outlineOffset = '';
+        });
     });
     
     // ===== EASTER EGGS =====
@@ -367,6 +383,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.body.style.animation = 'rainbow 2s infinite';
                 showNotification('🎉 Código secreto ativado! Que Deus te abençoe! 🎉', 'success');
                 konamiIndex = 0;
+                
+                // Track easter egg
+                trackEvent('easter_egg', 'engagement', 'konami_code');
                 
                 setTimeout(() => {
                     document.body.style.animation = '';
@@ -388,35 +407,75 @@ document.addEventListener('DOMContentLoaded', function() {
     style.textContent = rainbowCSS;
     document.head.appendChild(style);
     
-    // ===== ACESSIBILIDADE =====
-    // Detectar se o usuário prefere movimento reduzido
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+    // ===== PRELOAD DE RECURSOS CRÍTICOS =====
+    const criticalResources = [
+        'img/ieqlogo.png',
+        'css/style.css'
+    ];
     
-    if (prefersReducedMotion.matches) {
-        // Desabilitar animações para usuários que preferem movimento reduzido
-        const animatedElements = document.querySelectorAll('.floating, .animate-bounce, .animate-pulse, .animate-spin');
-        animatedElements.forEach(el => {
-            el.style.animation = 'none';
+    criticalResources.forEach(src => {
+        if (src.endsWith('.css')) {
+            const link = document.createElement('link');
+            link.rel = 'preload';
+            link.href = src;
+            link.as = 'style';
+            document.head.appendChild(link);
+        } else {
+            const img = new Image();
+            img.src = src;
+        }
+    });
+    
+    // ===== SERVICE WORKER PARA PWA =====
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('SW registrado: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW falhou: ', registrationError);
+                });
         });
     }
     
-    // Melhorar navegação por teclado
-    const focusableElements = document.querySelectorAll(
-        'a, button, input, textarea, select, details, [tabindex]:not([tabindex="-1"])'
-    );
+    // ===== MANIFEST PWA =====
+    const manifest = {
+        name: '1ª Igreja do Evangelho Quadrangular - Promissão',
+        short_name: '1ª IEQ Promissão',
+        description: 'Igreja baseada nos 4 pilares: Jesus Salva, Batiza, Cura e Voltará',
+        start_url: '/',
+        display: 'standalone',
+        background_color: '#ffffff',
+        theme_color: '#ef4444',
+        icons: [
+            {
+                src: 'img/icon-192.png',
+                sizes: '192x192',
+                type: 'image/png'
+            },
+            {
+                src: 'img/icon-512.png',
+                sizes: '512x512',
+                type: 'image/png'
+            }
+        ]
+    };
     
-    focusableElements.forEach(el => {
-        el.addEventListener('focus', function() {
-            this.style.outline = '2px solid #eab308';
-            this.style.outlineOffset = '2px';
-        });
-        
-        el.addEventListener('blur', function() {
-            this.style.outline = '';
-            this.style.outlineOffset = '';
-        });
-    });
+    // Criar manifest dinamicamente
+    const manifestBlob = new Blob([JSON.stringify(manifest)], {type: 'application/json'});
+    const manifestURL = URL.createObjectURL(manifestBlob);
+    const manifestLink = document.createElement('link');
+    manifestLink.rel = 'manifest';
+    manifestLink.href = manifestURL;
+    document.head.appendChild(manifestLink);
     
+    // ===== INICIALIZAÇÃO FINAL =====
     console.log('🙏 Website da 1ª IEQ Promissão carregado com sucesso!');
     console.log('💫 Desenvolvido com amor para a glória de Deus');
+    console.log('📱 Modo mobile:', isMobile ? 'Ativado' : 'Desativado');
+    console.log('♿ Movimento reduzido:', prefersReducedMotion.matches ? 'Ativado' : 'Desativado');
+    
+    // Track page load
+    trackPageView(window.location.pathname);
 });

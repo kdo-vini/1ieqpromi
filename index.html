@@ -3,7 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>1ª Igreja do Evangelho Quadrangular - Promissão/SP</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>1ª Igreja do Evangelho Quadrangular - Promissão/SP | Jesus Salva, Batiza, Cura e Voltará</title>
+    <meta name="description" content="Conheça a 1ª Igreja do Evangelho Quadrangular de Promissão/SP. Uma igreja baseada nos 4 pilares: Jesus Salva, Batiza, Cura e Voltará. Cultos aos domingos 9h e 19h30.">
+    <meta name="keywords" content="igreja quadrangular promissão, igreja evangélica promissão, cultos promissão sp, jesus salva batiza cura voltará, 1ieq promissão">
+    <meta name="author" content="1ª IEQ Promissão">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://1ieqpromissao.com.br/">
+    <meta property="og:title" content="1ª Igreja do Evangelho Quadrangular - Promissão/SP">
+    <meta property="og:description" content="Uma igreja baseada nos 4 pilares da fé cristã. Venha nos conhecer!">
+    <meta property="og:image" content="https://1ieqpromissao.com.br/img/og-image.jpg">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://1ieqpromissao.com.br/">
+    <meta property="twitter:title" content="1ª Igreja do Evangelho Quadrangular - Promissão/SP">
+    <meta property="twitter:description" content="Uma igreja baseada nos 4 pilares da fé cristã. Venha nos conhecer!">
+    <meta property="twitter:image" content="https://1ieqpromissao.com.br/img/og-image.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://1ieqpromissao.com.br/">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+    <link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+    
+    <!-- Schema.org structured data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Church",
+      "name": "1ª Igreja do Evangelho Quadrangular de Promissão",
+      "alternateName": "1ª IEQ Promissão",
+      "description": "Igreja evangélica baseada nos 4 pilares da fé: Jesus Salva, Batiza, Cura e Voltará",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. José Orlando Pereira, 500",
+        "addressLocality": "Promissão",
+        "addressRegion": "SP",
+        "postalCode": "16370-000",
+        "addressCountry": "BR"
+      },
+      "telephone": "+55-14-99109-6033",
+      "url": "https://1ieqpromissao.com.br",
+      "sameAs": [
+        "https://www.instagram.com/1ieqpromissao",
+        "https://www.facebook.com/1ieqpromissao"
+      ],
+      "openingHours": [
+        "Su 09:00-10:30",
+        "Su 19:30-21:00",
+        "Tu 20:00-21:30",
+        "Fr 20:00-21:30"
+      ]
+    }
+    </script>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
@@ -11,49 +70,50 @@
 <body>
     <!-- Navigation -->
     <nav class="glass-effect" id="navbar">
-  <div class="container">
-    <div class="flex justify-between items-center h-16">
-      <div class="flex items-center space-x-3">
-        <!-- Logo -->
-        <a href="#home" class="flex items-center">
-          <img src="img/ieqlogo.png" alt="ieqlogo" class="h-10 w-auto object-contain" />
-        </a>
-        <!-- Nome -->
-        <span class="text-white font-bold text-xl">1ª IEQ Promissão</span>
-      </div>
+        <div class="container">
+            <div class="nav-header">
+                <div class="nav-logo">
+                    <!-- Logo -->
+                    <a href="index.html" class="logo-link">
+                        <img src="img/ieqlogo.png" alt="Logo 1ª IEQ Promissão" class="logo-img" />
+                    </a>
+                    <!-- Nome -->
+                    <span class="nav-title">1ª IEQ Promissão</span>
+                </div>
 
-      <!-- Links desktop -->
-      <div class="hidden md:block">
-        <div class="ml-10 flex items-baseline space-x-4">
-          <a href="#home" class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Início</a>
-          <a href="#about" class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Sobre</a>
-          <a href="#pillars" class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Pilares</a>
-          <a href="#services" class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Cultos</a>
-          <a href="#contact" class="text-white hover:text-yellow-300 px-3 py-2 rounded-md text-sm font-medium transition-colors">Contato</a>
+                <!-- Links desktop -->
+                <div class="nav-desktop">
+                    <div class="nav-links">
+                        <a href="index.html" class="nav-link active">Início</a>
+                        <a href="galeria.html" class="nav-link">Galeria</a>
+                        <a href="#about" class="nav-link">Sobre</a>
+                        <a href="#pillars" class="nav-link">Pilares</a>
+                        <a href="#services" class="nav-link">Cultos</a>
+                        <a href="#contact" class="nav-link">Contato</a>
+                    </div>
+                </div>
+
+                <!-- Botão mobile -->
+                <div class="nav-mobile">
+                    <button id="mobile-menu-button" class="mobile-toggle" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
         </div>
-      </div>
 
-      <!-- Botão mobile -->
-      <div class="md:hidden">
-        <button id="mobile-menu-button" class="text-white">
-          <i class="fas fa-bars text-xl"></i>
-        </button>
-      </div>
-    </div>
-  </div>
-
-  <!-- Mobile Menu -->
-  <div id="mobile-menu" class="md:hidden hidden glass-effect">
-    <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-      <a href="#home" class="text-white block px-3 py-2 rounded-md text-base font-medium">Início</a>
-      <a href="#about" class="text-white block px-3 py-2 rounded-md text-base font-medium">Sobre</a>
-      <a href="#pillars" class="text-white block px-3 py-2 rounded-md text-base font-medium">Pilares</a>
-      <a href="#services" class="text-white block px-3 py-2 rounded-md text-base font-medium">Cultos</a>
-      <a href="#contact" class="text-white block px-3 py-2 rounded-md text-base font-medium">Contato</a>
-    </div>
-  </div>
-</nav>
-
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu hidden">
+            <div class="mobile-menu-content">
+                <a href="index.html" class="mobile-link active">Início</a>
+                <a href="galeria.html" class="mobile-link">Galeria</a>
+                <a href="#about" class="mobile-link">Sobre</a>
+                <a href="#pillars" class="mobile-link">Pilares</a>
+                <a href="#services" class="mobile-link">Cultos</a>
+                <a href="#contact" class="mobile-link">Contato</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- Hero Section -->
     <section id="home" class="gradient-bg">
@@ -68,8 +128,8 @@
         <div class="container relative z-10">
             <div class="text-center text-white">
                 <div class="floating mb-8">
-                    <a href="#home" class="flex items-center">
-                        <img src="img/ieqlogo.png" alt="ieqlogo" class="h-20 w-auto object-contain" />
+                    <a href="index.html" class="flex items-center justify-center">
+                        <img src="img/ieqlogo.png" alt="Logo 1ª IEQ Promissão" class="h-20 w-auto object-contain" />
                     </a>
                 </div>
                 
@@ -272,6 +332,14 @@
                     <p class="text-sm text-gray-700">Comunhão e crescimento espiritual em pequenos grupos</p>
                 </div>
             </div>
+            
+            <!-- CTA para Galeria -->
+            <div class="text-center mt-12 fade-in">
+                <a href="galeria.html" class="btn btn-primary">
+                    <i class="fas fa-images mr-2"></i>
+                    Ver Fotos dos Nossos Eventos
+                </a>
+            </div>
         </div>
     </section>
 
@@ -320,9 +388,9 @@
                             <div class="flex items-center">
                                 <i class="fab fa-whatsapp text-2xl text-yellow-300 mr-4"></i>
                                 <div>
-                                    <h4 class="font-semibold">Whatsapp</h4>
+                                    <h4 class="font-semibold">WhatsApp</h4>
                                     <a href="https://wa.me/5514991096033" target="_blank" class="hover:text-yellow-300 transition-colors">
-                                        (14)99109-6033
+                                        (14) 99109-6033
                                     </a>
                                 </div>
                             </div>
@@ -332,7 +400,7 @@
                 
                 <div class="fade-in">
                     <div class="glass-effect p-8 rounded-3xl">
-                        <h3 class="text-2xl font-bold mb-6 text-center">Nosso Endereço</h3>
+                        <h3 class="text-2xl font-bold mb-6 text-center">Nossa Localização</h3>
 
                         <div class="w-full h-[400px] rounded-xl overflow-hidden">
                             <iframe
@@ -343,7 +411,8 @@
                                 loading="lazy"
                                 allowfullscreen
                                 referrerpolicy="no-referrer-when-downgrade"
-                                src="https://www.google.com/maps?q=Av.+José+Orlando+Pereira,+500,+Promissão,+SP,+16370-000&output=embed">
+                                src="https://www.google.com/maps?q=Av.+José+Orlando+Pereira,+500,+Promissão,+SP,+16370-000&output=embed"
+                                title="Localização da 1ª IEQ Promissão">
                             </iframe>
                         </div>
                     </div>
@@ -359,10 +428,10 @@
                 <div>
                     <div class="flex items-center mb-4">
                         <!-- Logo -->
-                        <a href="#home" class="flex items-center">
-                        <img src="img/ieqlogo.png" alt="ieqlogo" class="h-10 w-auto object-contain" />
+                        <a href="index.html" class="flex items-center">
+                            <img src="img/ieqlogo.png" alt="Logo 1ª IEQ Promissão" class="h-10 w-auto object-contain" />
                         </a>
-                        <h3 class="text-xl font-bold">1ª IEQ Promissão</h3>
+                        <h3 class="text-xl font-bold ml-2">1ª IEQ Promissão</h3>
                     </div>
                     <p class="text-gray-400 leading-relaxed">
                         Uma igreja comprometida com o Evangelho completo de Jesus Cristo, 
@@ -373,6 +442,8 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Links Rápidos</h4>
                     <ul class="space-y-2 text-gray-400">
+                        <li><a href="index.html" class="hover:text-white transition-colors">Início</a></li>
+                        <li><a href="galeria.html" class="hover:text-white transition-colors">Galeria</a></li>
                         <li><a href="#about" class="hover:text-white transition-colors">Sobre Nós</a></li>
                         <li><a href="#pillars" class="hover:text-white transition-colors">Nossos Pilares</a></li>
                         <li><a href="#services" class="hover:text-white transition-colors">Cultos</a></li>
@@ -383,13 +454,13 @@
                 <div>
                     <h4 class="text-lg font-semibold mb-4">Redes Sociais</h4>
                     <div class="flex space-x-4">
-                        <a href="https://www.instagram.com/1ieqpromissao" target="_blank" class="text-2xl text-gray-400 hover:text-yellow-300 transition-colors">
+                        <a href="https://www.instagram.com/1ieqpromissao" target="_blank" class="text-2xl text-gray-400 hover:text-yellow-300 transition-colors" aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.facebook.com/1ieqpromissao" class="text-2xl text-gray-400 hover:text-yellow-300 transition-colors">
+                        <a href="https://www.facebook.com/1ieqpromissao" target="_blank" class="text-2xl text-gray-400 hover:text-yellow-300 transition-colors" aria-label="Facebook">
                             <i class="fab fa-facebook"></i>
                         </a>
-                        <a href="https://wa.me/5514991096033" class="text-2xl text-gray-400 hover:text-yellow-300 transition-colors">
+                        <a href="https://wa.me/5514991096033" target="_blank" class="text-2xl text-gray-400 hover:text-yellow-300 transition-colors" aria-label="WhatsApp">
                             <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
@@ -397,7 +468,7 @@
             </div>
             
             <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
-                <p>&copy; 2025 Téchne Soluções em TI. Todos os direitos reservados.</p>
+                <p>&copy; 2025 1ª Igreja do Evangelho Quadrangular - Promissão/SP. Todos os direitos reservados.</p>
                 <p class="mt-2">Desenvolvido com ❤️ para a glória de Deus</p>
             </div>
         </div>

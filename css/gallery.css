@@ -1,0 +1,771 @@
+/* ===========================================
+   PÁGINA DE REDIRECIONAMENTO INSTAGRAM
+   =========================================== */
+
+/* Hero Section da Galeria - Compacta */
+.gallery-page .gradient-bg {
+    min-height: auto;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
+}
+
+.gallery-page .gradient-bg .container {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.gallery-page .floating {
+    margin-bottom: 0.5rem;
+    padding-top: 0.25rem;
+}
+
+/* Instagram Preview Cards */
+.instagram-preview-card {
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+    color: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.instagram-preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.instagram-preview-card i {
+    display: block;
+    margin-bottom: 1rem;
+}
+
+.instagram-preview-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+}
+
+.instagram-preview-card p {
+    font-size: 0.875rem;
+    opacity: 0.9;
+}
+
+/* Glass effect melhorado */
+.glass-effect {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+/* Botão Instagram principal */
+.instagram-main-btn {
+    background: linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+    background-size: 400% 400%;
+    animation: gradientShift 3s ease infinite;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-weight: bold;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.instagram-main-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .instagram-preview-card {
+        padding: 1rem;
+    }
+    
+    .instagram-preview-card i {
+        font-size: 2rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    .instagram-preview-card h3 {
+        font-size: 1rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .instagram-preview-card p {
+        font-size: 0.75rem;
+    }
+    
+    /* Hero section mobile - Ultra compacta */
+    .gallery-page .gradient-bg {
+        padding-top: 3.5rem;
+        padding-bottom: 0.5rem;
+    }
+    
+    .gallery-page .floating {
+        margin-bottom: 0.5rem;
+        padding-top: 0.25rem;
+    }
+    
+    .gallery-page .floating i {
+        font-size: 2.5rem;
+    }
+    
+    .gallery-page h1 {
+        font-size: 1.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .gallery-page p {
+        font-size: 0.875rem;
+    }
+    
+    .glass-effect {
+        margin: 0 0.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-page .gradient-bg {
+        padding-top: 3rem;
+        padding-bottom: 0.25rem;
+    }
+    
+    .gallery-page .floating {
+        margin-bottom: 0.25rem;
+    }
+    
+    .gallery-page .floating i {
+        font-size: 2rem;
+    }
+    
+    .gallery-page h1 {
+        font-size: 1.25rem;
+        margin-bottom: 0.25rem;
+    }
+    
+    .gallery-page p {
+        font-size: 0.75rem;
+    }
+    
+    .instagram-preview-card {
+        padding: 0.75rem;
+    }
+    
+    .instagram-preview-card i {
+        font-size: 1.5rem;
+    }
+    
+    .instagram-preview-card h3 {
+        font-size: 0.875rem;
+    }
+    
+    .instagram-preview-card p {
+        font-size: 0.625rem;
+    }
+}
+
+/* Animações suaves */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.instagram-preview-card {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+.instagram-preview-card:nth-child(1) { animation-delay: 0.1s; }
+.instagram-preview-card:nth-child(2) { animation-delay: 0.2s; }
+.instagram-preview-card:nth-child(3) { animation-delay: 0.3s; }
+.instagram-preview-card:nth-child(4) { animation-delay: 0.4s; }
+
+/* Efeito hover para cards de features */
+.feature-card {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+}
+
+.feature-card .bg-red-100,
+.feature-card .bg-yellow-100,
+.feature-card .bg-blue-100 {
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover .bg-red-100 {
+    background-color: #fecaca;
+    transform: scale(1.1);
+}
+
+.feature-card:hover .bg-yellow-100 {
+    background-color: #fed7aa;
+    transform: scale(1.1);
+}
+
+.feature-card:hover .bg-blue-100 {
+    background-color: #bfdbfe;
+    transform: scale(1.1);
+}
+
+.feature-card {
+    font-size: 2rem;
+}
+
+.gallery-page h1 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+}
+    
+    .gallery-page p {
+        font-size: 0.75rem;
+    }
+
+
+/* Item da Galeria */
+.gallery-item {
+    position: relative;
+    aspect-ratio: 1;
+    border-radius: 15px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: #f3f4f6;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Overlay da Galeria */
+.gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        rgba(0,0,0,0.1) 30%,
+        rgba(0,0,0,0.8)
+    );
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 15px;
+    color: white;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-overlay h3 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 4px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+}
+
+.gallery-overlay p {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+.gallery-overlay i {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    font-size: 18px;
+    opacity: 0.8;
+}
+
+@media (max-width: 768px) {
+    .gallery-overlay {
+        padding: 10px;
+    }
+    
+    .gallery-overlay h3 {
+        font-size: 14px;
+    }
+    
+    .gallery-overlay p {
+        font-size: 12px;
+    }
+    
+    .gallery-overlay i {
+        font-size: 16px;
+        top: 10px;
+        right: 10px;
+    }
+}
+
+/* Modal da Galeria */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    overflow: hidden;
+}
+
+.gallery-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Botão Fechar */
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.modal-close:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.1);
+}
+
+/* Navegação do Modal */
+.modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    font-size: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+    backdrop-filter: blur(10px);
+}
+
+.modal-nav:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.modal-prev {
+    left: 20px;
+}
+
+.modal-next {
+    right: 20px;
+}
+
+/* Container da Imagem */
+.modal-image-container {
+    position: relative;
+    max-width: 90vw;
+    max-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+
+/* Loading */
+.modal-loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 2rem;
+}
+
+/* Informações do Modal */
+.modal-info {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(15px);
+    padding: 20px;
+    border-radius: 15px;
+    color: white;
+    text-align: center;
+    max-width: 90vw;
+    min-width: 300px;
+}
+
+.modal-info h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.modal-info p {
+    opacity: 0.9;
+    margin-bottom: 15px;
+}
+
+/* Ações do Modal */
+.modal-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.modal-action-btn {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 25px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-action-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* Contador */
+.modal-counter {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 25px;
+    font-weight: 600;
+}
+
+/* Responsividade Mobile */
+@media (max-width: 768px) {
+    .modal-content {
+        padding: 10px;
+    }
+    
+    .modal-close,
+    .modal-nav {
+        width: 45px;
+        height: 45px;
+        font-size: 20px;
+    }
+    
+    .modal-close {
+        top: 10px;
+        right: 10px;
+    }
+    
+    .modal-prev {
+        left: 10px;
+    }
+    
+    .modal-next {
+        right: 10px;
+    }
+    
+    .modal-image-container {
+        max-width: 95vw;
+        max-height: 60vh;
+    }
+    
+    .modal-info {
+        bottom: 10px;
+        padding: 15px;
+        min-width: auto;
+        width: 90vw;
+    }
+    
+    .modal-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .modal-counter {
+        top: 10px;
+        left: 10px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+    
+    .modal-actions {
+        gap: 8px;
+    }
+    
+    .modal-action-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    .modal-image-container {
+        max-height: 50vh;
+    }
+    
+    .modal-info {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        width: 100%;
+        max-width: none;
+    }
+    
+    .modal-content {
+        justify-content: flex-start;
+        padding-top: 60px;
+    }
+}
+
+/* Animações */
+@keyframes fadeInModal {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.gallery-modal.active .modal-image-container {
+    animation: fadeInModal 0.3s ease-out;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+.gallery-modal.active .modal-info {
+    animation: slideInFromBottom 0.4s ease-out 0.1s both;
+}
+
+/* Estados de filtro */
+.gallery-item {
+    opacity: 1;
+    transform: scale(1);
+    transition: all 0.4s ease;
+}
+
+.gallery-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+/* Lazy loading placeholder */
+.gallery-item img[loading="lazy"] {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Touch gestures para mobile */
+@media (hover: none) and (pointer: coarse) {
+    .gallery-overlay {
+        opacity: 1;
+        background: linear-gradient(
+            to bottom,
+            transparent 60%,
+            rgba(0,0,0,0.8)
+        );
+    }
+    
+    .gallery-item:active {
+        transform: scale(0.98);
+    }
+    
+    .modal-nav {
+        opacity: 0.7;
+    }
+    
+    .modal-nav:active {
+        opacity: 1;
+        transform: translateY(-50%) scale(0.95);
+    }
+}
+
+/* Melhor suporte para iOS Safari */
+@supports (-webkit-touch-callout: none) {
+    .modal-content {
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
+    
+    .gallery-modal {
+        height: 100vh;
+        height: -webkit-fill-available;
+    }
+}
+
+/* Estados de carregamento */
+.gallery-item.loading {
+    pointer-events: none;
+}
+
+.gallery-item.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 30px;
+    height: 30px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-top: 3px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* Efeitos de performance */
+.gallery-item,
+.modal-content,
+.gallery-overlay {
+    will-change: transform;
+    backface-visibility: hidden;
+}
+
+/* Scroll customizado para modal info em dispositivos pequenos */
+.modal-info::-webkit-scrollbar {
+    width: 4px;
+}
+
+.modal-info::-webkit-scrollbar-track {
+    background: rgba(255,255,255,0.1);
+    border-radius: 2px;
+}
+
+.modal-info::-webkit-scrollbar-thumb {
+    background: rgba(255,255,255,0.3);
+    border-radius: 2px;
+}
+
+/* Acessibilidade */
+.gallery-item:focus {
+    outline: 2px solid #eab308;
+    outline-offset: 2px;
+}
+
+.modal-close:focus,
+.modal-nav:focus,
+.modal-action-btn:focus {
+    outline: 2px solid #eab308;
+    outline-offset: 2px;
+}
+
+/* Modo escuro automático */
+@media (prefers-color-scheme: dark) {
+    .filter-btn {
+        background: #374151;
+        color: white;
+        border-color: #4b5563;
+    }
+    
+    .filter-btn:hover {
+        border-color: #eab308;
+        color: #eab308;
+    }
+}
+
+/* Redução de movimento para acessibilidade */
+@media (prefers-reduced-motion: reduce) {
+    .gallery-item,
+    .gallery-overlay,
+    .modal-content,
+    .modal-image-container img {
+        transition: none;
+        animation: none;
+    }
+    
+    .gallery-item:hover {
+        transform: none;
+    }
+    
+    .gallery-item:hover img {
+        transform: none;
+    }
+}
